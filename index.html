@@ -197,6 +197,103 @@
             <center><a href=""><h3 class="Enlace">Conocer más...</h3></a></center>
             </div>
         </section>
+        <section class="Remodelaciones">
+            <div class="contenedor">
+                <h2 class="titulo">Remodelaciones</h2>
+            </div>
+            <div class="Remo">
+                <div class="conteRemo">
+                    <div class="itemRemo" id="itemRemo-1">
+                        <div class="itemRemoTarjeta">
+                            <center><img src="img/sec3-1.jpg" alt="" class ="imagen-Remo"></center>
+                        </div>
+                        <div class="itemRemoArrows">
+                            <a href="#itemRemo-6" class="arrow-rem">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemRemo-2" class="arrow-rem">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemRemo" id="itemRemo-2">
+                        <div class="itemRemoTarjeta">
+                            <center><img src="img/sec3-2.jpg" alt="" class ="imagen-Remo"></center>
+                        </div>
+                        <div class="itemRemoArrows">
+                            <a href="#itemRemo-1" class="arrow-rem">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemRemo-3" class="arrow-rem">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemRemo" id="itemRemo-3">
+                        <div class="itemRemoTarjeta">
+                            <center><img src="img/sec3-3.jpg" alt="" class ="imagen-Remo"></center>
+                        </div>
+                        <div class="itemRemoArrows">
+                            <a href="#itemRemo-2" class="arrow-rem">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemRemo-4" class="arrow-rem">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemRemo" id="itemRemo-4">
+                        <div class="itemRemoTarjeta">
+                            <center><img src="img/sec3-4.jpg" alt="" class ="imagen-Remo"></center>
+                        </div>
+                        <div class="itemRemoArrows">
+                            <a href="#itemRemo-3" class="arrow-rem">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemRemo-5" class="arrow-rem">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemRemo" id="itemRemo-5">
+                        <div class="itemRemoTarjeta">
+                            <center><img src="img/sec3-5.jpg" alt="" class ="imagen-Remo"></center>
+                        </div>
+                        <div class="itemRemoArrows">
+                            <a href="#itemRemo-4" class="arrow-rem">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemRemo-6" class="arrow-rem">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemRemo" id="itemRemo-6">
+                        <div class="itemRemoTarjeta">
+                            <center><img src="img/sec3-6.jpg" alt="" class ="imagen-Remo"></center>
+                        </div>
+                        <div class="itemRemoArrows">
+                            <a href="#itemRemo-5" class="arrow-rem">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemRemo-1" class="arrow-rem">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="conteRemoController">
+                    <a href="#itemRemo-1"><h2>•</h2></a>
+                    <a href="#itemRemo-2"><h2>•</h2></a>
+                    <a href="#itemRemo-3"><h2>•</h2></a>
+                    <a href="#itemRemo-4"><h2>•</h2></a>
+                    <a href="#itemRemo-5"><h2>•</h2></a>
+                    <a href="#itemRemo-6"><h2>•</h2></a>
+                </div>
+            </br>
+            <center><a href=""><h3 class="Enlace">Conocer más...</h3></a></center>
+            </div>
+        </section>
     </main>
     <footer>
         <section>
@@ -219,20 +316,19 @@
     </footer>
 </body>
 </html>
-<!-- lógica Carrusel 1 y Carrusel 2 -->
 <script>
     // Función para mostrar la diapositiva deseada y actualizar los colores de los "•"
-    function showSlide(index, isPeriferico) {
+    function showSlide(index, isPeriferico, isRemo) {
         // Seleccionar el contenedor adecuado según el tipo de carrusel
-        var containerClass = isPeriferico ? '.contePerifericoController' : '.conteCarrouselController';
+        var containerClass = isPeriferico ? '.contePerifericoController' : (isRemo ? '.conteRemoController' : '.conteCarrouselController');
 
         // Ocultar todas las diapositivas
-        document.querySelectorAll(isPeriferico ? '.itemPeriferico' : '.itemCarrousel').forEach(function (slide) {
+        document.querySelectorAll(isPeriferico ? '.itemPeriferico' : (isRemo ? '.itemRemo' : '.itemCarrousel')).forEach(function (slide) {
             slide.style.display = 'none';
         });
 
         // Mostrar la diapositiva deseada
-        var targetSlideId = isPeriferico ? 'itemPeriferico-' : 'itemCarrousel-';
+        var targetSlideId = isPeriferico ? 'itemPeriferico-' : (isRemo ? 'itemRemo-' : 'itemCarrousel-');
         targetSlideId += index;
 
         var targetSlide = document.getElementById(targetSlideId);
@@ -251,38 +347,30 @@
     }
 
     // Manejar clics en las flechas
-    document.querySelectorAll('.arrow-link').forEach(function (link) {
-        link.addEventListener('click', function (event) {
-            event.preventDefault(); // Detener la acción predeterminada del enlace
-            var targetSlideId = this.getAttribute('href').substring(1);
-            var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
-
-            // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex, false);
-        });
-    });
-
-    document.querySelectorAll('.arrow-peri').forEach(function (link) {
-        link.addEventListener('click', function (event) {
-            event.preventDefault(); // Detener la acción predeterminada del enlace
-            var targetSlideId = this.getAttribute('href').substring(1);
-            var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
-
-            // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex, true);
-        });
-    });
-
-    // Manejar clics en los "•"
-    document.querySelectorAll('.conteCarrouselController a, .contePerifericoController a').forEach(function (link) {
+    document.querySelectorAll('.arrow-link, .arrow-peri, .arrow-rem').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault(); // Detener la acción predeterminada del enlace
             var targetSlideId = this.getAttribute('href').substring(1);
             var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
             var isPeriferico = targetSlideId.startsWith('itemPeriferico');
+            var isRemo = targetSlideId.startsWith('itemRemo');
 
             // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex, isPeriferico);
+            showSlide(targetSlideIndex, isPeriferico, isRemo);
+        });
+    });
+
+    // Manejar clics en los "•"
+    document.querySelectorAll('.conteCarrouselController a, .contePerifericoController a, .conteRemoController a').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Detener la acción predeterminada del enlace
+            var targetSlideId = this.getAttribute('href').substring(1);
+            var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
+            var isPeriferico = targetSlideId.startsWith('itemPeriferico');
+            var isRemo = targetSlideId.startsWith('itemRemo');
+
+            // Cambiar la imagen a la que está indicada en el href
+            showSlide(targetSlideIndex, isPeriferico, isRemo);
         });
     });
 
@@ -290,5 +378,6 @@
     window.onload = function () {
         document.querySelector('.conteCarrouselController a:first-child').classList.add('active');
         document.querySelector('.contePerifericoController a:first-child').classList.add('active');
+        document.querySelector('.conteRemoController a:first-child').classList.add('active');
     };
 </script>

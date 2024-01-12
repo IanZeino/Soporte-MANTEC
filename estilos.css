@@ -26,7 +26,7 @@ main{
 }
 
 .titulo{
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -45,32 +45,6 @@ header img {
     position: absolute;
     top: 0;
     right: 0;
-}
-
-
-/*diseño de la primera sección*/
-.contenedor-info-empresa{
-    display: flex;
-    justify-content: center;
-}
-
-.imagen-soporte{
-    width: 30%;
-    padding-right: 10px;
-}
-
-.info-empresa .contenido-textos{
-    width: 48%;
-    text-align: center;
-    padding-top: 100px;
-}
-
-.contenido-textos h1{
-    font-size: 50px;
-}
-
-.info-empresa .contenido-textos p{
-    font-size: 30px;
 }
 
 /*Diseño del footer*/
@@ -113,28 +87,28 @@ footer{
 }
 
 /*Carrusel*/
-.carrousel, .Periferico{
+.carrousel, .Periferico, .Remo{
     width: 100%;
 }
 
-.conteCarrousel, .contePeriferico{
+.conteCarrousel, .contePeriferico, .conteRemo{
     width: 100%;
     height: 400px;
     overflow: hidden;
 }
 
-.itemCarrousel, .itemPeriferico{
+.itemCarrousel, .itemPeriferico, .itemRemo{
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.itemCarrouselTarjeta, .itemPerifericoTarjeta{
+.itemCarrouselTarjeta, .itemPerifericoTarjeta, .itemRemoTarjeta{
     width: 100%;
     height: 100%;
 }
 
-.itemCarrouselArrows, .itemPerifericoArrows{
+.itemCarrouselArrows, .itemPerifericoArrows, .itemRemoArrows{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -156,7 +130,11 @@ footer{
     cursor: pointer;
 }
 
-.conteCarrouselController, .contePerifericoController{
+.itemRemoArrows> i:hover {
+    cursor: pointer;
+}
+
+.conteCarrouselController, .contePerifericoController, .conteRemoController{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -165,6 +143,12 @@ footer{
 }
 
 .conteCarrouselController > a{
+    text-decoration: none;
+    font-size: 2em;
+    color: grey;
+}
+
+.conteRemoController > a{
     text-decoration: none;
     font-size: 2em;
     color: grey;
@@ -188,11 +172,17 @@ footer{
     padding-right: 200px;
 }
 
+.itemRemoArrows > a > i{
+    color: black;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
 i{
     font-size: 100px;
 }
 
-.imagen-carrusel, .imagen-Periferico{
+.imagen-carrusel, .imagen-Periferico, .imagen-Remo{
     width: auto;
     height: 400px;
 }
@@ -202,6 +192,10 @@ i{
 }
 
 .contePerifericoController a.active {
+    color: #0c8edc; /* Puedes ajustar el color según tus preferencias */
+}
+
+.conteRemoController a.active {
     color: #0c8edc; /* Puedes ajustar el color según tus preferencias */
 }
 
