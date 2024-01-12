@@ -11,7 +11,7 @@ body{
 
 main{
     background-image: url('img/bg.png');
-    background-size: 60%;
+    background-size: 100%;
     background-position: bottom right;
     background-repeat: no-repeat;
 }
@@ -87,28 +87,28 @@ footer{
 }
 
 /*Carrusel*/
-.carrousel, .Periferico, .Remo, .IT{
+.carrousel, .Periferico, .Remo, .IT, .Ele{
     width: 100%;
 }
 
-.conteCarrousel, .contePeriferico, .conteRemo, .conteIT{
+.conteCarrousel, .contePeriferico, .conteRemo, .conteIT, .conteEle{
     width: 100%;
     height: 400px;
     overflow: hidden;
 }
 
-.itemCarrousel, .itemPeriferico, .itemRemo, .itemIT{
+.itemCarrousel, .itemPeriferico, .itemRemo, .itemIT, .itemEle{
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.itemCarrouselTarjeta, .itemPerifericoTarjeta, .itemRemoTarjeta, .itemITTarjeta{
+.itemCarrouselTarjeta, .itemPerifericoTarjeta, .itemRemoTarjeta, .itemITTarjeta, .itemEleTarjeta{
     width: 100%;
     height: 100%;
 }
 
-.itemCarrouselArrows, .itemPerifericoArrows, .itemRemoArrows, .itemITArrows{
+.itemCarrouselArrows, .itemPerifericoArrows, .itemRemoArrows, .itemITArrows, .itemEleArrows{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -138,7 +138,11 @@ footer{
     cursor: pointer;
 }
 
-.conteCarrouselController, .contePerifericoController, .conteRemoController, .conteITController{
+.itemEleArrows> i:hover {
+    cursor: pointer;
+}
+
+.conteCarrouselController, .contePerifericoController, .conteRemoController, .conteITController, .conteEleController{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -170,6 +174,12 @@ footer{
     color: grey;
 }
 
+.conteEleController > a{
+    text-decoration: none;
+    font-size: 2em;
+    color: grey;
+}
+
 .itemCarrouselArrows > a > i{
     color: black;
     padding-left: 200px;
@@ -194,11 +204,17 @@ footer{
     padding-right: 200px;
 }
 
+.itemEleArrows > a > i{
+    color: black;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
 i{
     font-size: 100px;
 }
 
-.imagen-carrusel, .imagen-Periferico, .imagen-Remo, .imagen-IT{
+.imagen-carrusel, .imagen-Periferico, .imagen-Remo, .imagen-IT, .imagen-Ele{
     width: auto;
     height: 400px;
 }
@@ -216,6 +232,10 @@ i{
 }
 
 .conteITController a.active {
+    color: #0c8edc; 
+}
+
+.conteEleController a.active {
     color: #0c8edc; 
 }
 

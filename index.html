@@ -447,6 +447,103 @@
             <center><a href=""><h3 class="Enlace">Conocer más...</h3></a></center>
             </div>
         </section>
+        <section class="Instalaciones eléctricas">
+            <div class="contenedor">
+                <h2 class="titulo"> Instalaciones eléctricas </h2>
+            </div>
+            <div class="Ele">
+                <div class="conteEle">
+                    <div class="itemEle" id="itemEle-1">
+                        <div class="itemEleTarjeta">
+                            <center><img src="img/sec5-1.jpg" alt="" class ="imagen-Ele"></center>
+                        </div>
+                        <div class="itemEleArrows">
+                            <a href="#itemEle-6" class="arrow-ele">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemEle-2" class="arrow-ele">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemEle" id="itemEle-2">
+                        <div class="itemEleTarjeta">
+                            <center><img src="img/sec5-2.jpg" alt="" class ="imagen-Ele"></center>
+                        </div>
+                        <div class="itemEleArrows">
+                            <a href="#itemEle-1" class="arrow-ele">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemEle-3" class="arrow-ele">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemEle" id="itemEle-3">
+                        <div class="itemEleTarjeta">
+                            <center><img src="img/sec5-3.jpg" alt="" class ="imagen-Ele"></center>
+                        </div>
+                        <div class="itemEleArrows">
+                            <a href="#itemEle-2" class="arrow-ele">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemEle-4" class="arrow-ele">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemEle" id="itemEle-4">
+                        <div class="itemEleTarjeta">
+                            <center><img src="img/sec5-4.jpg" alt="" class ="imagen-Ele"></center>
+                        </div>
+                        <div class="itemEleArrows">
+                            <a href="#itemEle-3" class="arrow-ele">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemEle-5" class="arrow-ele">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemEle" id="itemEle-5">
+                        <div class="itemEleTarjeta">
+                            <center><img src="img/sec5-5.jpg" alt="" class ="imagen-Ele"></center>
+                        </div>
+                        <div class="itemEleArrows">
+                            <a href="#itemEle-4" class="arrow-ele">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemEle-6" class="arrow-ele">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemEle" id="itemEle-6">
+                        <div class="itemEleTarjeta">
+                            <center><img src="img/sec5-6.jpg" alt="" class ="imagen-Ele"></center>
+                        </div>
+                        <div class="itemEleArrows">
+                            <a href="#itemEle-5" class="arrow-ele">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemEle-1" class="arrow-ele">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="conteEleController">
+                    <a href="#itemEle-1"><h2>•</h2></a>
+                    <a href="#itemEle-2"><h2>•</h2></a>
+                    <a href="#itemEle-3"><h2>•</h2></a>
+                    <a href="#itemEle-4"><h2>•</h2></a>
+                    <a href="#itemEle-5"><h2>•</h2></a>
+                    <a href="#itemEle-6"><h2>•</h2></a>
+                </div>
+            </br>
+            <center><a href=""><h3 class="Enlace">Conocer más...</h3></a></center>
+            </div>
+        </section>
     </main>
     <footer>
         <section>
@@ -471,7 +568,7 @@
 </html>
 <script>
     // Función para mostrar la diapositiva deseada y actualizar los colores de los "•"
-    function showSlide(index, isPeriferico, isRemo, isIT) {
+    function showSlide(index, isPeriferico, isRemo, isIT, isEle) {
         // Seleccionar el contenedor adecuado según el tipo de carrusel
         var containerClass;
         if (isPeriferico) {
@@ -480,17 +577,19 @@
             containerClass = '.conteRemoController';
         } else if (isIT) {
             containerClass = '.conteITController';
+        } else if (isEle) {
+            containerClass = '.conteEleController';
         } else {
             containerClass = '.conteCarrouselController';
         }
 
         // Ocultar todas las diapositivas
-        document.querySelectorAll(isPeriferico ? '.itemPeriferico' : (isRemo ? '.itemRemo' : (isIT ? '.itemIT' : '.itemCarrousel'))).forEach(function (slide) {
+        document.querySelectorAll(isPeriferico ? '.itemPeriferico' : (isRemo ? '.itemRemo' : (isIT ? '.itemIT' : (isEle ? '.itemEle' : '.itemCarrousel')))).forEach(function (slide) {
             slide.style.display = 'none';
         });
 
         // Mostrar la diapositiva deseada
-        var targetSlideId = isPeriferico ? 'itemPeriferico-' : (isRemo ? 'itemRemo-' : (isIT ? 'itemIT-' : 'itemCarrousel-'));
+        var targetSlideId = isPeriferico ? 'itemPeriferico-' : (isRemo ? 'itemRemo-' : (isIT ? 'itemIT-' : (isEle ? 'itemEle-' : 'itemCarrousel-')));
         targetSlideId += index;
 
         var targetSlide = document.getElementById(targetSlideId);
@@ -509,7 +608,7 @@
     }
 
     // Manejar clics en las flechas
-    document.querySelectorAll('.arrow-link, .arrow-peri, .arrow-rem, .arrow-IT').forEach(function (link) {
+    document.querySelectorAll('.arrow-link, .arrow-peri, .arrow-rem, .arrow-IT, .arrow-ele').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault(); // Detener la acción predeterminada del enlace
             var targetSlideId = this.getAttribute('href').substring(1);
@@ -517,14 +616,15 @@
             var isPeriferico = targetSlideId.startsWith('itemPeriferico');
             var isRemo = targetSlideId.startsWith('itemRemo');
             var isIT = targetSlideId.startsWith('itemIT');
+            var isEle = targetSlideId.startsWith('itemEle');
 
             // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex, isPeriferico, isRemo, isIT);
+            showSlide(targetSlideIndex, isPeriferico, isRemo, isIT, isEle);
         });
     });
 
     // Manejar clics en los "•"
-    document.querySelectorAll('.conteCarrouselController a, .contePerifericoController a, .conteRemoController a, .conteITController a').forEach(function (link) {
+    document.querySelectorAll('.conteCarrouselController a, .contePerifericoController a, .conteRemoController a, .conteITController a, .conteEleController a').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault(); // Detener la acción predeterminada del enlace
             var targetSlideId = this.getAttribute('href').substring(1);
@@ -532,9 +632,10 @@
             var isPeriferico = targetSlideId.startsWith('itemPeriferico');
             var isRemo = targetSlideId.startsWith('itemRemo');
             var isIT = targetSlideId.startsWith('itemIT');
+            var isEle = targetSlideId.startsWith('itemEle');
 
             // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex, isPeriferico, isRemo, isIT);
+            showSlide(targetSlideIndex, isPeriferico, isRemo, isIT, isEle);
         });
     });
 
@@ -544,5 +645,6 @@
         document.querySelector('.contePerifericoController a:first-child').classList.add('active');
         document.querySelector('.conteRemoController a:first-child').classList.add('active');
         document.querySelector('.conteITController a:first-child').classList.add('active');
+        document.querySelector('.conteEleController a:first-child').classList.add('active');
     };
 </script>
