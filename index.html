@@ -93,7 +93,7 @@
                             <center><img src="img/sec1-8.jpg" alt="" class ="imagen-carrusel"></center>
                         </div>
                         <div class="itemCarrouselArrows">
-                            <a href="#itemCarrousel5-" class="arrow-link">
+                            <a href="#itemCarrousel-5" class="arrow-link">
                                 <i class="fas fa-chevron-left"></i>
                             </a>
                             <a href="#itemCarrousel-7" class="arrow-link">
@@ -128,6 +128,75 @@
             <center><a href=""><h3 class="Enlace">Conocer más...</h3></a></center>
             </div>
         </section>
+        <section class="Perifericos">
+            <div class="contenedor">
+                <h2 class="titulo">Perifericos</h2>
+            </div>
+            <div class="Periferico">
+                <div class="contePeriferico">
+                    <div class="itemPeriferico" id="itemPeriferico-1">
+                        <div class="itemPerifericoTarjeta">
+                            <center><img src="img/sec2-1.jpg" alt="" class ="imagen-Periferico"></center>
+                        </div>
+                        <div class="itemPerifericoArrows">
+                            <a href="#itemPeriferico-4" class="arrow-peri">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemPeriferico-2" class="arrow-peri">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemPeriferico" id="itemPeriferico-2">
+                        <div class="itemPerifericoTarjeta">
+                            <center><img src="img/sec2-2.jpg" alt="" class ="imagen-Periferico"></center>
+                        </div>
+                        <div class="itemPerifericoArrows">
+                            <a href="#itemPeriferico-1" class="arrow-peri">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemPeriferico-3" class="arrow-peri">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemPeriferico" id="itemPeriferico-3">
+                        <div class="itemPerifericoTarjeta">
+                            <center><img src="img/sec2-3.jpg" alt="" class ="imagen-Periferico"></center>
+                        </div>
+                        <div class="itemPerifericoArrows">
+                            <a href="#itemPeriferico-2" class="arrow-peri">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemPeriferico-4" class="arrow-peri">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="itemPeriferico" id="itemPeriferico-4">
+                        <div class="itemPerifericoTarjeta">
+                            <center><img src="img/sec2-4.jpg" alt="" class ="imagen-Periferico"></center>
+                        </div>
+                        <div class="itemPerifericoArrows">
+                            <a href="#itemPeriferico-3" class="arrow-peri">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <a href="#itemPeriferico-1" class="arrow-peri">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contePerifericoController">
+                    <a href="#itemPeriferico-1"><h2>•</h2></a>
+                    <a href="#itemPeriferico-2"><h2>•</h2></a>
+                    <a href="#itemPeriferico-3"><h2>•</h2></a>
+                    <a href="#itemPeriferico-4"><h2>•</h2></a>
+                </div>
+            </br>
+            <center><a href=""><h3 class="Enlace">Conocer más...</h3></a></center>
+            </div>
+        </section>
     </main>
     <footer>
         <section>
@@ -150,23 +219,29 @@
     </footer>
 </body>
 </html>
+<!-- lógica Carrusel 1 y Carrusel 2 -->
 <script>
     // Función para mostrar la diapositiva deseada y actualizar los colores de los "•"
-    function showSlide(index) {
+    function showSlide(index, isPeriferico) {
+        // Seleccionar el contenedor adecuado según el tipo de carrusel
+        var containerClass = isPeriferico ? '.contePerifericoController' : '.conteCarrouselController';
+
         // Ocultar todas las diapositivas
-        document.querySelectorAll('.itemCarrousel').forEach(function (slide) {
+        document.querySelectorAll(isPeriferico ? '.itemPeriferico' : '.itemCarrousel').forEach(function (slide) {
             slide.style.display = 'none';
         });
 
         // Mostrar la diapositiva deseada
-        var targetSlideId = 'itemCarrousel-' + index;
+        var targetSlideId = isPeriferico ? 'itemPeriferico-' : 'itemCarrousel-';
+        targetSlideId += index;
+
         var targetSlide = document.getElementById(targetSlideId);
         if (targetSlide) {
             targetSlide.style.display = 'block';
         }
 
         // Actualizar los colores de los "•"
-        document.querySelectorAll('.conteCarrouselController a').forEach(function (link, i) {
+        document.querySelectorAll(containerClass + ' a').forEach(function (link, i) {
             if (i + 1 === index) {
                 link.classList.add('active');
             } else {
@@ -183,24 +258,37 @@
             var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
 
             // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex);
+            showSlide(targetSlideIndex, false);
         });
     });
 
-    // Manejar clics en los "•"
-    document.querySelectorAll('.conteCarrouselController a').forEach(function (link) {
+    document.querySelectorAll('.arrow-peri').forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault(); // Detener la acción predeterminada del enlace
             var targetSlideId = this.getAttribute('href').substring(1);
             var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
 
             // Cambiar la imagen a la que está indicada en el href
-            showSlide(targetSlideIndex);
+            showSlide(targetSlideIndex, true);
+        });
+    });
+
+    // Manejar clics en los "•"
+    document.querySelectorAll('.conteCarrouselController a, .contePerifericoController a').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Detener la acción predeterminada del enlace
+            var targetSlideId = this.getAttribute('href').substring(1);
+            var targetSlideIndex = parseInt(targetSlideId.split('-')[1]);
+            var isPeriferico = targetSlideId.startsWith('itemPeriferico');
+
+            // Cambiar la imagen a la que está indicada en el href
+            showSlide(targetSlideIndex, isPeriferico);
         });
     });
 
     // Resaltar el primer "•" al cargar la página
     window.onload = function () {
         document.querySelector('.conteCarrouselController a:first-child').classList.add('active');
+        document.querySelector('.contePerifericoController a:first-child').classList.add('active');
     };
 </script>

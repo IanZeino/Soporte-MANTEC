@@ -113,28 +113,28 @@ footer{
 }
 
 /*Carrusel*/
-.carrousel{
+.carrousel, .Periferico{
     width: 100%;
 }
 
-.conteCarrousel{
+.conteCarrousel, .contePeriferico{
     width: 100%;
     height: 400px;
     overflow: hidden;
 }
 
-.itemCarrousel{
+.itemCarrousel, .itemPeriferico{
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.itemCarrouselTarjeta{
+.itemCarrouselTarjeta, .itemPerifericoTarjeta{
     width: 100%;
     height: 100%;
 }
 
-.itemCarrouselArrows{
+.itemCarrouselArrows, .itemPerifericoArrows{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -148,11 +148,15 @@ footer{
     padding: 20px; 
 }
 
-.itemCarrouselArrows > i:hover {
+.itemCarrouselArrows> i:hover {
     cursor: pointer;
 }
 
-.conteCarrouselController{
+.itemPerifericoArrows> i:hover {
+    cursor: pointer;
+}
+
+.conteCarrouselController, .contePerifericoController{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -166,7 +170,19 @@ footer{
     color: grey;
 }
 
+.contePerifericoController > a{
+    text-decoration: none;
+    font-size: 2em;
+    color: grey;
+}
+
 .itemCarrouselArrows > a > i{
+    color: black;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.itemPerifericoArrows > a > i{
     color: black;
     padding-left: 200px;
     padding-right: 200px;
@@ -176,7 +192,7 @@ i{
     font-size: 100px;
 }
 
-.imagen-carrusel{
+.imagen-carrusel, .imagen-Periferico{
     width: auto;
     height: 400px;
 }
@@ -185,7 +201,12 @@ i{
     color: #0c8edc; /* Puedes ajustar el color según tus preferencias */
 }
 
-/*Enlaces*/
+.contePerifericoController a.active {
+    color: #0c8edc; /* Puedes ajustar el color según tus preferencias */
+}
+
+/*Enlace*/
 .Enlace{
     font-size: 30px;
+    padding-bottom: 20px;
 }
